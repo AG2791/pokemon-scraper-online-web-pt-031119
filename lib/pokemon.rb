@@ -7,7 +7,7 @@ class Pokemon
 #     @db = db
 # end
 
-def initialize(id:, name:, type:, hp: nil, db:)
+def initialize(id:, name:, type:, hp: 60, db:)
     @id, @name, @type, @hp, @db = id, name, type, hp, db
   end
 
@@ -30,7 +30,7 @@ def self.find(id_num, db)
   end
 
   
-def alter_hp(new_hp = 60, db)
+def alter_hp(new_hp, db)
     db.execute("UPDATE pokemon SET hp = ? WHERE id = ?", new_hp, self.id)
   end
 
